@@ -127,8 +127,8 @@ def test_encoding_decoding(encoded_bytes):
 
 cell_size = 20
 
-message = "Adisa"
-rs = RSCodec(40)  # Utiliser 20 octets de redondance
+message = "Lucas"
+rs = RSCodec(40)  # Utiliser 40 octets de redondance
 
 # Encode the message with Reed-Solomon
 message_encoded = rs.encode(bytearray(message, 'utf-8'))
