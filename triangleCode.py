@@ -1,6 +1,4 @@
 from PIL import Image, ImageDraw
-import textwrap
-import numpy as np
 from reedsolo import RSCodec, ReedSolomonError
 import math
 
@@ -8,7 +6,7 @@ import math
 def generate_img(levels, cell_size):
     # Calculer la taille de l'image en fonction du nombre de niveaux et de la taille des cellules
     triangle_size = levels * cell_size
-    # Créer une nouvelle image en niveaux de gris 
+    # Créer une nouvelle image avec un arrirèe plan en niveaux de gris 
     img = Image.new('RGB', (triangle_size, triangle_size), color=(200,200,200))
     draw = ImageDraw.Draw(img)
 
@@ -53,7 +51,7 @@ def required_levels(message_bits):
 # Encodage du message dans l'image vide du TriangleCode
 def encode_message_in_triangle(message, img, cell_size):
     # Encode le message avec Reed-Solomon
-    rs = RSCodec(20)  # Utilise 20 octets de redondance
+    rs = RSCodec(10)  # Utilise 10 octets de redondance
     message_encoded = rs.encode(bytearray(message, 'utf-8'))
 
     draw = ImageDraw.Draw(img)
@@ -120,7 +118,7 @@ def decode_message_from_triangle(img, cell_size):
     byte_array = bits_to_bytes(bit_list)
 
     # Décode le message avec Reed-Solomon
-    rs = RSCodec(20)
+    rs = RSCodec(10)
     try:
         # Décode le message avec Reed-Solomon
         message_decoded = rs.decode(byte_array)
@@ -135,8 +133,8 @@ def decode_message_from_triangle(img, cell_size):
 
 # Décodage du message à partir du message encodé avec Reed-Solomon
 def decode_message_from_message(encoded_bytes):
-    # Création d'une instance Reed-Solomon avec 20 octets de redondance
-    rs = RSCodec(20)
+    # Création d'une instance Reed-Solomon avec 10 octets de redondance
+    rs = RSCodec(10)
     print("Longueur du message encodé :", len(encoded_bytes))
     print("Message encodé :", encoded_bytes)
 
@@ -161,8 +159,8 @@ def decode_message_from_message(encoded_bytes):
 
 cell_size = 20 # Modifier ici pour changer la taille des cellules
 
-message = "Hello world" # Modifier ici pour coder un autre message
-rs = RSCodec(20)  # Utiliser 20 octets de redondance
+message = "A" # Modifier ici pour coder un autre message
+rs = RSCodec(10)  # Utiliser 10 octets de redondance
 
 # Encoder avec ReedSolomon
 message_encoded = rs.encode(bytearray(message, 'utf-8'))
