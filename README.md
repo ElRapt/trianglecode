@@ -24,6 +24,13 @@ The repository contains two main methods, one for encoding a message into an ima
 
 `decode_message_from_triangle(img, cell_size)`: This function decodes a message from an image. It reads the triangles from the image, converts them back into binary digits, and then decodes the Reed-Solomon encoding to recover the original message.
 
+## Example
+
+Below is the image generated with the message `Hello world` encoded with 10 bytes of redundancy with Reed-Solomon.
+
+![Capture d’écran 2023-05-18 125117](https://github.com/ElRapt/trianglecode/assets/102360910/d873d66c-e402-499c-a508-b7266ebd49e8)
+
+
 ## Limitations and Potential Improvements
 
 While the Triangle Code protocol presents unique features such as its simplicity, visibility and integration of Reed-Solomon error correction, it also has certain limitations, particularly concerning its resilience to distortion and information density. Future improvements could include increasing the data density, improving the resilience to distortion, and optimizing the Reed-Solomon error correction process.
@@ -39,3 +46,6 @@ This is an open-source project and contributions are welcome. Please read the co
 ## License
 
 Please see the `LICENSE` file for details.
+
+
+
