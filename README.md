@@ -16,6 +16,27 @@ The triangles are read from top to bottom, level by level. Each level contains o
 
 The Triangle Code protocol integrates Reed-Solomon error correction. This means that even if a certain percentage of the data is corrupted, the original message can still be recovered. 
 
+## Operation of Encoding and Decoding
+
+In the Triangle Code protocol, a message goes through two significant phases – encoding and decoding. 
+
+### Encoding
+The process begins by encoding the original message. This is done by converting each character in the message into its binary form, each character being represented by an 8-bit binary number corresponding to its ASCII value. For instance, the letter 'A' would be translated into '01000001'. 
+
+After this, the message is further encoded using Reed-Solomon error correction to add redundancy. Reed-Solomon code is a type of systematic code, meaning that the original message is still present in the encoded message, but extra redundant information is appended to the end. This redundancy helps in detecting and correcting errors that might occur during transmission or storage.
+
+Each binary digit (bit) is then represented by a triangular cell in the image – a white triangle represents a '1', while a black triangle represents a '0'. The bits are read from left to right, starting at the top of the triangle and working down each level.
+
+### Decoding
+Decoding follows the reverse process of encoding. The triangular cells are read from the top down, left to right, and the color of each cell is converted back into a bit – white cells become '1', black cells become '0'. 
+
+These bits are then grouped into bytes (8 bits per byte), which are then fed into the Reed-Solomon decoder. The Reed-Solomon decoder uses the redundant information encoded earlier to detect and correct any errors that might have occurred.
+
+Finally, each corrected byte is converted back into its corresponding character using the ASCII standard, resulting in the original message being retrieved.
+
+This operation of encoding and decoding allows the Triangle Code to effectively store information in a visual format, while also providing resilience against errors.
+
+
 ## Implementation
 
 The repository contains two main methods, one for encoding a message into an image and another for decoding a message from an image.
