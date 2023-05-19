@@ -49,7 +49,7 @@ The repository contains two main methods, one for encoding a message into an ima
 
 Below is the image generated with the message `Hello world` encoded with 10 bytes of redundancy with Reed-Solomon.
 
-![Capture d’écran 2023-05-18 125117](https://github.com/ElRapt/trianglecode/assets/102360910/d873d66c-e402-499c-a508-b7266ebd49e8)
+![Capture d’écran 2023-05-18 125117](https://github.com/ElRapt/trianglecode/assets/102360910/7a661ad6-6d4b-49cc-871c-f9d93561dfbb)
 
 
 ## Limitations and Potential Improvements
