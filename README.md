@@ -1,5 +1,9 @@
 # Triangle Code
 
+![GitHub](https://img.shields.io/github/license/ElRapt/trianglecode)
+![Language](https://img.shields.io/badge/Language-Python-blue)
+![Size](https://img.shields.io/badge/Size-1MB-lime)
+
 ## Overview
 
 Triangle Code is an innovative and unique approach to encoding and decoding data within a visually meaningful and aesthetically appealing structure. It was developed as a project during my Computer Science undergraduate studies.
