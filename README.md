@@ -6,7 +6,7 @@
 
 ## Overview
 
-Triangle Code is an innovative and unique approach to encoding and decoding data within a visually meaningful and aesthetically appealing structure. It was developed as a project during my Computer Science undergraduate studies.
+Triangle Code is an experimental approach to encoding and decoding data within a visually meaningful and aesthetically appealing structure. It was developed as a project during my Computer Science undergraduate studies.
 
 > **Disclaimer**: This project is largely conceptual and has certain limitations, particularly regarding the decoding process. It is not recommended for production use.
 
