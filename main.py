@@ -1,30 +1,26 @@
 from PIL import Image, ImageDraw
 from reedsolo import RSCodec, ReedSolomonError
 import math
-from calculator import message_to_bits, required_levels, bits_to_bytes, bytes_to_string
+from calculator import message_to_bits, required_levels_for_encoding
 from decoder import decode_message_from_message, decode_message_from_triangle
 from encoder import encode_message_in_triangle
-from drawer import generate_img
+from drawer import generate_img, show_triangle
 
 cell_size = 20 
 
-messageToCode = "A" 
-rs = RSCodec(10) 
+messageToCode = "My name is Lucas" 
+rs = RSCodec(10) # 10 bytes of redundancy
 
 message_encoded = rs.encode(bytearray(messageToCode, 'utf-8'))
 
 message_bits = message_to_bits(message_encoded)
-levels = required_levels(message_bits)
+levels = required_levels_for_encoding(message_bits)
 triangle_size = levels * cell_size
 
-img = generate_img(levels, cell_size)
-encode_message_in_triangle(message_bits, img, cell_size, levels, triangle_size)
-img.show()
+img = show_triangle(levels, cell_size, message_bits, triangle_size)
 
-# Lancer le décodage sur l'image encodée à partir du message
 decoded_message_message = decode_message_from_message(message_encoded)
-print("Message décodé à partir du message : ", decoded_message_message)
+print("Decoded message using message : ", decoded_message_message)
 
-# Lancer le décodage sur l'image encodée à partir de l'image
 decoded_message_img = decode_message_from_triangle(img, cell_size)
-print("Message décodé à partir de l'image : ", decoded_message_img)
+print("Decoded message using image : ", decoded_message_img)
