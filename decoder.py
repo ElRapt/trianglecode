@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 from calculator import bytes_to_string, bits_to_bytes, bits_to_message
 
 
-def decode_message_from_triangle(img, img_width, img_height, levels, triangle_size, cell_size, bit_list):
+def decode_cells_to_array(img, img_width, img_height, levels, triangle_size, cell_size, bit_list):
     for level in range(levels):
 
         for i in range(level + 1):
@@ -37,7 +37,7 @@ def decode_message_from_triangle(img, cell_size):
     levels = img.size[0] // cell_size
     bit_list = []
 
-    byte_array = decode_message_from_triangle(img, img_width, img_height, levels, triangle_size, cell_size, bit_list)
+    byte_array = decode_cells_to_array(img, img_width, img_height, levels, triangle_size, cell_size, bit_list)
 
     rs = RSCodec(10)
     try:
